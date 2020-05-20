@@ -1,0 +1,174 @@
+1.Write a simple Python program to implement Diffie–Hellman Key Exchange Example
+code:-
+sharedPrime = 23    
+sharedBase = 5      
+aliceSecret = 6     
+bobSecret = 15      
+print( "Publicly Shared Variables:")
+print( "    Publicly Shared Prime: " , sharedPrime )
+print( "    Publicly Shared Base:  " , sharedBase )
+A = (sharedBase**aliceSecret) % sharedPrime
+print( "\n  Alice Sends Over Public Chanel: " , A )
+B = (sharedBase ** bobSecret) % sharedPrime
+print("\n Bob Sends Over Public Chanel: ", B )
+print( "\n------------\n" )
+print( "Privately Calculated Shared Secret:" )
+# Alice Computes Shared Secret: s = B^a mod p
+aliceSharedSecret = (B ** aliceSecret) % sharedPrime
+print( "    Alice Shared Secret: ", aliceSharedSecret )
+bobSharedSecret = (A**bobSecret) % sharedPrime
+print( "    Bob Shared Secret: ", bobSharedSecret )
+
+
+
+2.Write java program which illustrates how to get column properties from ResultSet using ResultSetMetaData? ResultSetMetaData is an object that can be used to get information about the types and properties of the columns in a ResultSet object. Below example shows how to get ResultSet column properties using ResultSetMetaData object.
+
+code:-
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+public class Main{
+ 
+    public static void main(String a[]){
+         
+        Connection con = null;
+        Statement st = null; 
+        ResultSet rs = null;
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            con = DriverManager.
+                getConnection("jdbc:oracle:thin:@<hostname>:<port num>:<DB name>"
+                    ,"user","password");
+            st = con.createStatement();
+            rs = st.executeQuery("select * from emp");
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int columnCount = rsmd.getColumnCount();
+            for(int i=0;i<=columnCount;i++){
+                System.out.println(rsmd.getColumnName(i));
+                System.out.println(rsmd.getColumnType(i));
+            }
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally{
+            try{
+                if(rs != null) rs.close();
+                if(st != null) st.close();
+                if(con != null) con.close();
+            } catch(Exception ex){}
+        }
+    }
+}
+
+
+3.Write  C program Reverse a Linked List in groups of given size. 
+Test Case 1: If a linked listis: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 The value of size k is 2 Then the linked list looks like: 2 → 1 → 4 → 3 → 6 → 5 → 8 → 7
+
+Test Case 2: If a linked listis: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 The value of size k is 3 Then the linked list looks like: 3 → 2 → 1 → 6 → 5 → 4 → 8 → 7
+
+code:-
+
+#include<stdio.h> 
+#include<stdlib.h> 
+struct Node 
+{ 
+	int data; 
+	struct Node* next; 
+}; 
+struct Node *reverse (struct Node *head, int k) 
+{ 
+	struct Node* current = head; 
+	struct Node* next = NULL; 
+	struct Node* prev = NULL; 
+	int count = 0; 
+		while (current != NULL && count < k) 
+	{ 
+		next = current->next; 
+		current->next = prev; 
+		prev = current; 
+		current = next; 
+		count++; 
+	} 
+	if (next != NULL) 
+	head->next = reverse(next, k); 
+       return prev; 
+} 
+void push(struct Node** head_ref, int new_data) 
+{ 
+	
+	struct Node* new_node = (struct Node*) malloc(sizeof(struct Node)); 
+      new_node->data = new_data; 
+     new_node->next = (*head_ref);	 
+     (*head_ref) = new_node; 
+} 
+
+void printList(struct Node *node) 
+{ 
+	while (node != NULL) 
+	{ 
+		printf("%d ", node->data); 
+		node = node->next; 
+	} 
+}	 
+
+
+int main(void) 
+{ 
+
+	struct Node* head = NULL; 
+	
+	push(&head, 8); 
+	push(&head, 7); 
+	push(&head, 6); 
+	push(&head, 5); 
+	push(&head, 4); 
+	push(&head, 3); 
+	push(&head, 2); 
+	push(&head, 1);		 
+ int k;
+ 
+ 
+	printf("\nGiven linked list \n"); 
+	printList(head); 
+	 printf("\nk=");
+     scanf("%d",&k);
+	head = reverse(head, k); 
+
+	printf("\nReversed Linked list \n"); 
+	printList(head); 
+
+	return(0); 
+}
+
+4.Write Python Program to Reverse a Given Number
+This is a Python Program to reverse a given number.
+Problem Description
+The program takes a number and reverses it and store it in another variable and show it
+code:-
+n=int(input("Enter number: "))
+rev=0
+while(n>0):
+    dig=n%10
+    rev=rev*10+dig
+    n=n//10
+print("Reverse of the number:",rev)
+
+
+
+5. Python Program to Exchange the Values of Two Numbers using ^ (exclusive or
+operator)
+code:-
+x=int(input("Enter value of x: "))
+y=int(input("Enter value of y: "))
+x = x ^ y;
+y = x ^ y;
+x = x ^ y;
+print ("After Swapping: x = ", x, "y =", y)
