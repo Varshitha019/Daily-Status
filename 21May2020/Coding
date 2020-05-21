@@ -1,33 +1,5 @@
-1.Getting a message printed through Applet
-import java.awt.*;
-import java.applet.*;
-public class AppletDemo
-{
-      public void paint(Graphics g)
-      {
-           g.drawString("Welcome to TutorialRide", 50, 50);
-      }
-}
-<html>
-      <head>
-            <title> AppletDemo </title>
-      </head>
-      <body>
-            <applet code="AppletDemo.class" width="200" height="250">
-            </applet>
-      </body>
-</html>
 
-2. <title> AppletDemo </title>
-import java.applet.*;
-import java.awt.*;
-       public class Simple extends Applet {
-   public void paint (Graphics g) {
-      g.drawString ("	A Simple Applet", 20, 20);
-   }
-}
-
-3.  Write C Program to create Singly Liked List with n elements and reverse the elements 
+1.  Write C Program to create Singly Liked List with n elements and reverse the elements 
 code:-
 
 #include <stdio.h>   
@@ -94,7 +66,7 @@ int main()
   return 0;  
 }  
 
-4. Write a Java Program to Demonstrate a Basic Calculator using Applet
+2. Write a Java Program to Demonstrate a Basic Calculator using Applet
 Problem Description
 We have to write a program in Java such that it creates a calculator which allows basic operations of addition, subtraction, multiplication and division.
 Expected Input and Output
@@ -251,7 +223,7 @@ public class Calculator extends Applet implements ActionListener
     }
 }
 
-5.Write a C program to construct a singly linked list by removing duplicate elements in the sorted linked list
+3.Write a C program to construct a singly linked list by removing duplicate elements in the sorted linked list
 Description:
 Take a sorted list and traverse the list. Compare the current node element with next adjacent node. If it is same then delete second element, if not retain. Finally print the resulting list.
 Sample output:
@@ -339,7 +311,7 @@ int main()
     return 0;  
 }  
 
-6. Write a java program to implement round robin scheduling algorithm.Calculate AVG WT AND TAT.
+4. Write a java program to implement round robin scheduling algorithm.Calculate AVG WT AND TAT.
 public class Main
 { 
     static void findWaitingTime(int processes[], int n, 
@@ -414,7 +386,7 @@ public class Main
     } 
 }
 
-7.  write a simple applet java program to check whether the given number is armstrong number or not
+5.  write a simple applet java program to check whether the given number is armstrong number or not
 Description
 Armstrong Number :A positive number is called armstrong number if it is equal to the sum of cubes of its digits for example 0, 1, 153, 370, 371, 407 etc.
 Let's try to understand why 153 is an Armstrong number.
@@ -451,3 +423,31 @@ public class Astro {
     }
 }
 
+6.Getting a message printed through Applet
+import java.awt.*;
+import java.applet.*;
+public class AppletDemo
+{
+      public void paint(Graphics g)
+      {
+           g.drawString("Welcome to TutorialRide", 50, 50);
+      }
+}
+<html>
+      <head>
+            <title> AppletDemo </title>
+      </head>
+      <body>
+            <applet code="AppletDemo.class" width="200" height="250">
+            </applet>
+      </body>
+</html>
+
+7. <title> AppletDemo </title>
+import java.applet.*;
+import java.awt.*;
+       public class Simple extends Applet {
+   public void paint (Graphics g) {
+      g.drawString ("	A Simple Applet", 20, 20);
+   }
+}
