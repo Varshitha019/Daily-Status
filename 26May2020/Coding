@@ -1,0 +1,111 @@
+1.	Write Python Program to read a number n and print and compute the series “1+2+…+n=”.
+Problem Description
+The program takes a number n and prints and computes the series “1+2+…+n=”.
+code:-
+n = input("Enter Number ")
+n = int (n)
+sum = 0
+for num in range(0, n+1, 1):
+    sum = sum+num
+print("SUM of first ", n, "numbers is: ", sum )
+
+
+2.Write python Program to Count the Number of Digits in a Number 
+code:-
+n=int(input("Enter number:"))
+count=0
+while(n>0):
+    count=count+1
+    n=n//10
+print("The number of digits in the number are:",count)
+
+
+3.Write python Program to Check if a Number is a Palindrome
+code:-
+n=int(input("Enter number:"))
+temp=n
+rev=0
+while(n>0):
+    dig=n%10
+    rev=rev*10+dig
+    n=n//10
+if(temp==rev):
+    print("The number is a palindrome!")
+else:
+    print("The number isn't a palindrome!")
+    
+    
+
+4.Write python program to print all Integers that Aren’t Divisible by Either 2 or 3 and Lie between 1 and 50 
+Code:-
+for i in range(0, 51):
+   if((i%3!=0) & (i%5!=0)):
+      print(i)       
+
+
+
+5.Given an array A of size N where the array elements contain values from 1 to N with duplicates,
+the task is to find total number of subarrays which start and end with the same element.Write Java program for this.
+code:-
+public class Main { 
+    public static void cntArray(int A[], int N) 
+    { 
+        int result = 0; 
+  
+        for (int i = 0; i < N; i++) { 
+            result++; 
+            int current_value = A[i]; 
+  
+            for (int j = i + 1; j < N; j++) { 
+                if (A[j] == current_value) { 
+                    result++; 
+                } 
+            } 
+        } 
+        System.out.println(result); 
+    } 
+    public static void main(String[] args) 
+    { 
+        int[] A = { 1,2,1,5,2}; 
+        int N = A.length; 
+        cntArray(A, N); 
+    } 
+}
+
+
+6.Write a program in C to print all permutations of a given string using pointers 
+#include <stdio.h>
+#include <string.h> 
+void swap (char *x, char *y)
+{
+    char temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+void permute(char *a, int i, int n)
+{
+    int j;
+    if (i == n)
+        printf("%s\n", a);
+    else {
+        for (j = i; j <= n; j++)
+        {
+            swap((a + i), (a + j));
+            permute(a, i + 1, n);
+            swap((a + i), (a + j)); 
+        }
+    }
+}
+int main()
+{
+    char a[20];
+    int n;
+    printf("Enter a string: ");
+    scanf("%s", a);
+    n = strlen(a);
+    printf("Permutaions:\n"); 
+    permute(a, 0, n - 1);
+    getchar();
+    return 0;
+}
