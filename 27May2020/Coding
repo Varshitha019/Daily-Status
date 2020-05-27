@@ -1,0 +1,126 @@
+1.	Given an array arr[] of the positive integers of size N,the task is to find the largest element on the left side of each index which
+is smaller than the element present at that index. Note: If no such element is found then print -1.
+code:-
+import java.util.*; 
+       class Main{ 
+static void findMaximumBefore(int arr[], int n){ 
+	for (int i = 0; i < n; i++) { 
+                int currAns = -1; 
+		for (int j = i - 1; j >= 0; j--) { 
+			if (arr[j] > currAns && 
+				arr[j] < arr[i]) { 
+				currAns = arr[j]; 
+			} 
+		} 
+		System.out.print(currAns+ " "); 
+	} 
+}
+public static void main(String[] args) 
+{ 
+	int arr[] = { 4,7,2,8,5}; 
+
+	int n = arr.length;
+	findMaximumBefore(arr, n); 
+} 
+} 
+
+
+2. In Bubble sort, each pass consists of comparison each element in the file with its successor (i.e. x[i] with x[i+1]) and 
+interchanging two elements if they are not in the proper order. The array may be sorted in any pass. If the array is sorted,
+then remaining passes should be skipped off. Write a C Program to sort an array of integers in ascending order and display the 
+sorted array and Number of passes performed for sorting.
+code:-
+#include <stdio.h> 
+void swap(int *xp, int *yp) 
+{ 
+	int temp = *xp; 
+	*xp = *yp; 
+	*yp = temp; 
+}  
+void bubbleSort(int arr[], int n) 
+{ 
+int i, j; 
+for (i = 0; i < n-1; i++)	  
+	for (j = 0; j < n-i-1; j++) 
+		if (arr[j] > arr[j+1]) 
+			swap(&arr[j], &arr[j+1]); 
+} 
+void printArray(int arr[], int size) 
+{ 
+	int i; 
+	for (i=0; i < size; i++) 
+		printf("%d ", arr[i]); 
+	printf("\n"); 
+}  
+int main() 
+{ 
+	int arr[] = {84, 24, 15, 11, 20, 71, 50}; 
+	int n = sizeof(arr)/sizeof(arr[0]); 
+	bubbleSort(arr, n); 
+	printf("Sorted array: \n"); 
+	printArray(arr, n); 
+	return 0; 
+}
+
+
+3. Write a Java program to implement Binary Tree using the Linked List
+In this program, we need to create the binary tree by inserting nodes and displaying nodes in in-order fashion. A typical binary tree can be represented as follows:
+Java program to implement Binary Tree using the Linked List
+In the binary tree, each node can have at most two children. Each node can have zero, one or two children. Each node in the binary tree contains the following information:
+Java program to implement Binary Tree using the Linked List
+Data that represents value stored in the node.
+Left that represents the pointer to the left child.
+Right that represents the pointer to the right child.
+Algorithm
+Define Node class which has three attributes namely: data left and right. Here, left represents the left child of the node and right represents the right child of the node.
+When a node is created, data will pass to data attribute of the node and both left and right will be set to null.
+Define another class which has an attribute root.
+Root represents the root node of the tree and initialize it to null.
+a. insert() will add a new node to the tree:
+It checks whether the root is null, which means the tree is empty. It will add the new node as root.
+Else, it will add root to the queue.
+The variable node represents the current node.
+First, it checks whether a node has a left and right child. If yes, it will add both nodes to queue.
+If the left child is not present, it will add the new node as the left child.
+If the left is present, then it will add the new node as the right child.
+a. Inorder() will display nodes of the tree in inorder fashion.
+It traverses the entire tree then prints out left child followed by root then followed by the right child.
+Code:-
+public class Main {  
+    public static class Node{  
+        int data;  
+        Node left;  
+        Node right;
+        int key;
+        public Node(int data){  
+            this.data = data;  
+            this.left = null;  
+            this.right = null;  
+        }  
+    }  
+    public Node root;  
+ 
+    public Main(){  
+        root = null;  
+    }  
+    public int factorial(int num) {  
+        int fact = 1;  
+        if(num == 0)  
+            return 1;  
+        else {  
+            while(num > 1) {  
+                fact = fact * num;  
+                num--;  
+            }  
+            return fact;  
+        }
+    }
+    public int numOfBST(int key) {  
+        int catalanNumber = factorial(2 * key)/(factorial(key + 1) * factorial(key));  
+        return catalanNumber;  
+    }  
+    public static void main(String[] args) {  
+        Main bt = new Main();  
+        System.out.println("Total number of possible Binary Search Trees with given key: " + bt.numOfBST(5));  
+    }  
+}
