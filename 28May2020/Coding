@@ -82,3 +82,76 @@ public static boolean is_parentheses_balanced(String equation)
 	}	
 }
 
+3.Write jsp code to display today’s date and time using expression tag
+code:-
+<%@ page import = "java.io.*,java.util.*, javax.servlet.*" %>
+<html>
+   <head>
+      <title>Display Current Date &amp; Time</title>
+   </head>
+    <body>
+      <center>
+         <h1>Display Current Date &amp; Time</h1>
+      </center>
+      <%
+         Date date = new Date();
+         out.print( "<h2 align = \"center\">" +date.toString()+"</h2>");
+      %>
+   </body>
+</html>
+
+4.Write jsp script to determine how many times the visitor has loaded the page.
+code:-
+<%@ page import = "java.io.*,java.util.*" %>
+<html>
+   <head>
+      <title>Application object in JSP</title>
+   </head>
+    <body>
+      <%
+         Integer hitsCount = (Integer)application.getAttribute("hitCounter");
+         if( hitsCount ==null || hitsCount == 0 ) {
+            /* First visit */
+            out.println("Welcome to my website!");
+            hitsCount = 1;
+         } else {
+            /* return visit */
+            out.println("Welcome back to my website!");
+            hitsCount += 1;
+         }
+         application.setAttribute("hitCounter", hitsCount);
+      %>
+      <center>
+         <p>Total number of visits: <%= hitsCount%></p>
+      </center>
+   </body>
+</html>
+
+
+5.Write a  program  to find the last remaining element in the array after reducing the array.
+code:-
+#include <iostream> 
+using namespace std; 
+
+int find_value(int a[], int n, int k) 
+{ 
+    
+    int sum = 0; 
+  
+   
+    for (int i = 0; i < n; i++) { 
+        sum += a[i]; 
+    } 
+ 
+    return sum % k; 
+} 
+  
+
+int main() 
+{ 
+    int n = 5, k = 3; 
+    int a[] = { 12, 4, 13, 0, 5 }; 
+    cout << find_value(a, n, k); 
+    return 0; 
+}
+
