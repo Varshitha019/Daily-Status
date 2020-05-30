@@ -1,0 +1,60 @@
+1.Write a python program to read a number and print the pattern.
+Description:-
+take a number n and print the following pattern of the desired size.
+Enter number of rows: 5
+* * * * *
+* * * *
+* * *
+* *
+*
+Code:-
+rows = int(input("Enter the number of rows "))
+for i in range(rows + 1, 0, -1):
+    for j in range(0, i - 1):
+        print("*", end=' ')
+    print(" ") 
+
+
+
+2.Write a java program to Count number of trailing zeros in product of array 
+A simple solution is simply multiply and count trailing 0s in product. This solution may cause integer overflow. A better solution is based on the fact that zeros are formed by a combination of 2 and 5. Hence the number of zeros will depend on the number of pairs of 2’s and 5’s that can be formed.
+Ex.: 8 * 3 * 5 * 23 * 17 * 25 * 4 * 11
+23 * 31 * 51 * 231 * 171 * 52 * 22 * 111
+In this example there are 5 twos and 3 fives. Hence, we shall be able to form only 3 pairs of (2*5). Hence will be 3 Zeros in the product.
+Code:-
+import java.util.*; 
+import java.lang.*; 
+  public class Main 
+{ 
+ public static int countZeroso(int[] a, int n) 
+    { 
+        int count2 = 0, count5 = 0; 
+        for (int i = 0; i < n; i++)  
+        { 
+            while (a[i] % 2 == 0)  
+            { 
+                a[i] = a[i] / 2; 
+                count2++; 
+            } 
+         while (a[i] % 5 == 0)  
+            { 
+                a[i] = a[i] / 5; 
+                count5++; 
+            } 
+        } 
+       
+        return (count2 < count5) ? count2 : count5; 
+    } 
+    
+    public static void main(String argc[]) 
+    { 
+        int[] a = new int[]{ 10, 100, 20, 30,  
+                            50, 91, 12, 80 }; 
+        int n = 8; 
+        System.out.println(countZeroso(a, n)); 
+    } 
+      
+}
+
+
+ 
