@@ -1,0 +1,85 @@
+1.Write a python program to implement Perfect Sum Problem.
+Description:-
+Given an array arr[] of integers and an integer K, the task is to print all subsets of the given array with the sum equal to the given target K.
+Input: arr[] = {5, 10, 12, 13, 15, 18}, K = 30
+Output: {12, 18}, {5, 12, 13}, {5, 10, 15}
+Explanation:
+Subsets with sum 30 are:
+12 + 18 = 30
+5 + 12 + 13 = 30
+5 + 10 + 15 = 30
+Code:-
+def sumSubsets(sets, n, target) :
+    x = [0]*len(sets);
+    j = len(sets) - 1;  
+    while (n > 0) :
+     
+        x[j] = n % 2;  
+        n = n // 2;  
+        j -= 1;  
+     
+    sum = 0;  
+    for i in range(len(sets)) :
+        if (x[i] == 1) :
+            sum += sets[i];    
+    if (sum == target) :
+ 
+        print("{",end="");  
+        for i in range(len(sets)) :
+            if (x[i] == 1) :
+                print(sets[i],end= ", ");  
+        print("},",end="");  
+def findSubsets(arr, K) :  
+    x = pow(2, len(arr));  
+    for i in range(1, x) :
+        sumSubsets(arr, i, K);  
+if __name__ == "__main__" :  
+ 
+    arr = [ 5, 10, 12, 13, 15, 18 ];  
+    K = 30;  
+    findSubsets(arr, K); 
+
+
+
+2.Write java program  to print smallest and biggest possible palindrome word in a given string
+Description:
+Algorithm
+main()
+STEP 1: START
+STEP 2: DEFINE String string = "Wow you own kayak "
+STEP 3: DEFINE word = " ", smallPalin = " ", bigPalin = " "
+STEP 4: DEFINE String words[]
+STEP 5: SET temp = 0, count = 0
+STEP 6: CONVERT the string into lowercase
+STEP 7: string = string + " "
+STEP 8: SET i=0. REPEAT STEP 9 to STEP 11 UNTIL i<string.length()
+STEP 9: SPLIT the string into words.
+STEP 10: IF(string.charAt(i) != ' ') then
+word = word + string.charAt(i)
+else
+words[temp]= word
+temp = temp+1
+word = " "
+STEP 11: i=i+1
+STEP 12: SET i=0. REPEAT STEP 13 to STEP 17 UNTIL i<temp
+STEP 13: IF( isPalindrome(words[i]) ) then
+count = count + 1
+goto STEP 14
+STEP 14: IF(count==1)
+smallPalin = bigPalin = words[i]
+else go to STEP 15 and STEP 16
+STEP 15: IF length of smallPalin is greater than the length of words[i] then
+smallPalin = words[i]
+STEP 16: IF length of bigPalin is lesser than the length of words[i] then
+bigPalin = words[i]
+STEP 17: i=i+1
+STEP 18: IF(count==0) then PRINT "No palindrome is present in the given string "
+else
+PRINT smallPalin, bigPalin
+STEP 19: END
+isPalindrome(String a)
+STEP 1: START STEP 2: SET flag = true STEP 3: SET i=0. REPEAT STEP 4 to STEP 5 UNTIL i<a.length()/2 STEP 4: IF(a.charAt(i) != a.charAt(a.length()-i-1) then
+flag = false
+break STEP 5: i=i+1 STEP 6: RETURN flag STEP 7: END
+Code:-
+
