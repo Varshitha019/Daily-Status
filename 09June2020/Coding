@@ -144,4 +144,45 @@ public class Main
 }  
 
 
+3.Write a python program to count the number of even and odd numbers from a series of numbers.
+Description:-
+Numbers are = (1, 2, 3, 4, 5, 6, 7, 8, 9)
+Output:
+Number of even numbers : 5
+Number of odd numbers : 4
+Code:-
+numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9)
+count_odd = 0
+count_even = 0
+for x in numbers:
+    if not x % 2:
+        count_even+=1
+    else:
+        count_odd+=1
+print("Number of even numbers :",count_even)
+print("Number of odd numbers :",count_odd)
+
+
+4.Write a java program to remove all white spaces from a string without using replace().
+Code:-
+public class Main
+{
+    public static void main(String[] args)
+    {  
+        String str = "My  Name is   Preethi   Nayak";  
+        char[] strArray = str.toCharArray();   
+        StringBuffer stringBuffer = new StringBuffer();  
+        for (int i = 0; i < strArray.length; i++)
+        {  
+            if ((strArray[i] != ' ') && (strArray[i] != '\t')) 
+            {  
+                stringBuffer.append(strArray[i]);  
+            }  
+        }  
+        String noSpaceStr2 = stringBuffer.toString();  
+        System.out.println(noSpaceStr2);  
+    }  
+}  
+
+
 
