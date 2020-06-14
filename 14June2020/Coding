@@ -1,0 +1,77 @@
+1.Write a java program to remove specific characters in the String.
+Description:-
+If the original string is "Learning never stops" and the user inputsstring to remove "estp" then the it should print "Larning nvr o" as 
+output .
+Code:-
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args)
+    {
+        String originalstring="Learning never stops";
+        System.out.println("Original string is :  "+ originalstring);
+        System.out.println("");
+        System.out.println("Please enter unwanted characters as String");
+        System.out.println("");
+        Scanner in =new Scanner(System.in);
+        String removecharacterstring=in.nextLine();
+        String output=removeSpecificChars(originalstring, removecharacterstring);
+        System.out.println("");
+        System.out.print("Output is :  " );
+        System.out.println(output);
+    }
+   
+    public static String removeSpecificChars(String originalstring ,String removecharacterstring)
+    {
+        char[] orgchararray=originalstring.toCharArray();
+        char[] removechararray=removecharacterstring.toCharArray();
+        int start,end=0;
+        boolean[]  tempBoolean = new boolean[128];
+        for(start=0;start < removechararray.length;++start)
+        {
+            tempBoolean[removechararray[start]]=true;
+        }
+        for(start=0;start < orgchararray.length;++start)
+        {
+            if(!tempBoolean[orgchararray[start]])
+            {
+                orgchararray[end++]=orgchararray[start];
+            }
+        }
+        return new String(orgchararray,0,end);
+    }
+}
+
+
+2.Write a C Program to implement the Binary Reversal.
+Description:-
+Have the function BinaryReversal(str) take the str parameter being passed, which will be a positive integer, take its binary 
+representation, reverse that string of bits, and then finally return the new reversed string in decimal form. For example: if str is 
+47 then the binary version of this integer is 101111 but we pad it to be 00101111 (Total number of bits must be multiples of 4). Your 
+program should reverse this binary string which then becomes: 11110100 and then finally return the decimal version of this string, which is 244.
+Examples
+Input: 213
+Output: 171
+Input: 4567
+Output: 60296
+Code:-
+#include <stdio.h>
+ int main ()
+{
+	int n = 0, num = 0, count = 0, rev_bits = 0;
+	printf ("Enter the number: ");
+	scanf ("%d", &n);
+ 
+	while (n > 0)
+	{
+		rev_bits = rev_bits << 1;
+		if (n & 1 == 1)
+		{
+			rev_bits = rev_bits ^ 1;
+		}
+		n = n >> 1;
+	}
+ 
+	printf ("\nThe reversed resultant = %d\n", rev_bits);
+ 
+	return 0;
+}
