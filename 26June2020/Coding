@@ -1,0 +1,96 @@
+1.Write a java program to print all permutations of a given string.
+Description:
+Here is the steps to implement string permutations:
+Take out the first char and keep it constant. And permute rest of the characters.
+User recursive method call to permute rest of the string except first character.
+While making recursive call, we accumulate each character being constant along with recursive call response.
+Code:-
+import java.util.*;
+public class Main
+{
+static void printPermutn(String str, String ans)
+{
+if (str.length() == 0) {
+System.out.print(ans + " ");
+return;
+}
+for (int i = 0; i < str.length(); i++) {
+char ch = str.charAt(i);
+String ros = str.substring(0, i) +
+str.substring(i + 1);printPermutn(ros, ans + ch);
+}
+}
+public static void main(String[] args)
+{
+   Scanner sc=new Scanner(System.in);
+String s = sc.next();
+printPermutn(s, "");
+}
+} 
+
+2.Write a c program to implement simple queue using SLL.
+Code:-
+#include <stdio.h>
+// A C program to demonstrate linked list based implementation of queue 
+#include <stdio.h> 
+#include <stdlib.h> 
+ 
+struct QNode { 
+	int key; 
+	struct QNode* next; 
+}; 
+struct Queue { 
+	struct QNode *front, *rear; 
+};  
+struct QNode* newNode(int k) 
+{ 
+	struct QNode* temp = (struct QNode*)malloc(sizeof(struct QNode)); 
+	temp->key = k; 
+	temp->next = NULL; 
+	return temp; 
+}  
+struct Queue* createQueue() 
+{ 
+	struct Queue* q = (struct Queue*)malloc(sizeof(struct Queue)); 
+	q->front = q->rear = NULL; 
+	return q; 
+}
+void enQueue(struct Queue* q, int k) 
+{ 
+	struct QNode* temp = newNode(k); 
+
+	if (q->rear == NULL) { 
+		q->front = q->rear = temp; 
+		return; 
+	} 
+	q->rear->next = temp; 
+	q->rear = temp; 
+}
+void deQueue(struct Queue* q) 
+{  
+	if (q->front == NULL) 
+		return;  
+	struct QNode* temp = q->front; 
+
+	q->front = q->front->next; 
+	if (q->front == NULL) 
+		q->rear = NULL; 
+
+	free(temp); 
+} 
+int main() 
+{ 
+	struct Queue* q = createQueue(); 
+	enQueue(q, 10); 
+	enQueue(q, 20); 
+	deQueue(q); 
+	deQueue(q); 
+	enQueue(q, 30); 
+	enQueue(q, 40); 
+	enQueue(q, 50); 
+	deQueue(q); 
+	printf("Queue Front : %d \n", q->front->key); 
+	printf("Queue Rear : %d", q->rear->key); 
+	return 0; 
+} 
+
